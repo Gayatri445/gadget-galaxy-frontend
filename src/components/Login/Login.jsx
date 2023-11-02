@@ -22,7 +22,8 @@ const Login = () => {
   };
 
   const handleSignUp = async () => {
-    const url = "http://localhost:1337/api/auth/local/register";
+    const url = `${process.env.REACT_APP_STRAPI_APP_URL}/api/auth/local/register`;
+
     try {
       if (user.username && user.email && user.password) {
         const res = await axios.post(url, user);
@@ -43,7 +44,8 @@ const Login = () => {
   };
 
   const handleLogin = async () => {
-    const url = "http://localhost:1337/api/auth/local";
+    const url = `${process.env.REACT_APP_STRAPI_APP_URL}/api/auth/local`;
+
     try {
       if (user.email && user.password) {
         const loginData = {
